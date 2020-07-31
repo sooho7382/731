@@ -1,0 +1,20 @@
+{% block content %}
+
+<p> main page</p>
+
+<a href = "{% url 'create' %}">글쓰기</a>
+{% for x in posts.all %}
+    <p>제목:</p>
+    {{x.title}}<br>
+    <p>내용:</p>
+    {{x.content}}<br>
+    <p>쓴사람:</p>
+    {{x.writer}}<br>
+        {% if x.image %}
+        <img class="img-fluid rounded-circle" src="{{x.image.url}}" alt="">
+        {% endif %}
+{% endfor %}
+
+<a href="{% url 'signup' %}">회원가입하기</a>
+
+{% endblock %}
